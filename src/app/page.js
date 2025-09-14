@@ -3,6 +3,7 @@ import Link from "next/link";
 import Navbar from "./../components/Navbar";
 import Footer from "@/components/Footer";
 import Card from "@/components/Card";
+import GlobalStats from "@/components/GlobalStats";
 import { WavyBackground } from "@/components/ui/wavy-background";
 
 export default function Home() {
@@ -35,44 +36,9 @@ export default function Home() {
               </span>
             </h1>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 justify-items-center mb-8 sm:mb-12">
-              <Card
-                title="Cryptocurrencies"
-                description="Browse all cryptocurrencies and their current market data"
-                href="/cryptocurrencies"
-                icon="₿"
-              />
-
-              <Card
-                title="Exchanges"
-                description="Top cryptocurrency exchanges with trading volumes"
-                href="/exchanges"
-                icon="🏪"
-              />
-
-              <Card
-                title="Crypto News"
-                description="Latest cryptocurrency news and market updates"
-                href="/news"
-                icon="📰"
-              />
-            </div>
-
-            {/* Example crypto details link */}
-            <div className="text-center">
-              <p
-                className="text-gray-300 mb-6 text-base sm:text-xl font-medium tracking-wide"
-                style={{ fontFamily: "Poppins, Inter, sans-serif" }}
-              >
-                Explore individual cryptocurrencies:
-              </p>
-              <Link
-                href="/crypto/bitcoin"
-                className="inline-block bg-gradient-to-r from-orange-500 via-red-500 to-yellow-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-2xl font-bold hover:from-orange-600 hover:to-yellow-700 transition-all duration-300 transform hover:scale-105 shadow-2xl text-sm sm:text-lg tracking-wide hover:shadow-orange-500/25"
-                style={{ fontFamily: "Montserrat, sans-serif" }}
-              >
-                🚀 Bitcoin Details →
-              </Link>
+            {/* Global Crypto Stats */}
+            <div className="mb-16">
+              <GlobalStats />
             </div>
           </div>
         </WavyBackground>
