@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import Navbar from "./../components/Navbar";
+import Navbar from "./../components/navbar";
 import Footer from "@/components/Footer";
 import Card from "@/components/Card";
 import GlobalStats from "@/components/GlobalStats";

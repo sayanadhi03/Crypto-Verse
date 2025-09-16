@@ -25,9 +25,6 @@ const NewsCard = ({ article, index }) => {
       .trim();
   };
 
-  // Debug: Log the article structure to understand the data
-  console.log("Article data structure:", article);
-
   // Handle different possible data structures
   const articleData = {
     title:
@@ -65,52 +62,59 @@ const NewsCard = ({ article, index }) => {
 
   return (
     <div
-      className="group bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 hover:bg-white/10 hover:border-emerald-500/30 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-emerald-500/20 animate-slideInUp"
+      className="group bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 hover:bg-white/10 hover:border-emerald-500/30 transition-all duration-500 hover:-translate-y-3 hover:scale-[1.02] hover:shadow-2xl hover:shadow-emerald-500/20 animate-slideInUp cursor-pointer relative overflow-hidden"
       style={{
         animationDelay: `${index * 100}ms`,
       }}
     >
-      <div className="flex flex-col h-full">
+      {/* Animated Background Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/0 via-cyan-500/0 to-blue-500/0 group-hover:from-emerald-500/5 group-hover:via-cyan-500/5 group-hover:to-blue-500/5 transition-all duration-700 ease-out rounded-2xl"></div>
+
+      <div className="flex flex-col h-full relative z-10">
         {/* Source and Date */}
         <div className="flex items-center justify-between mb-4">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-emerald-500/20 rounded-full flex items-center justify-center">
-              <span className="text-emerald-400 text-sm font-bold">📰</span>
+          <div className="flex items-center gap-3 group-hover:scale-105 transition-transform duration-300">
+            <div className="w-8 h-8 bg-emerald-500/20 group-hover:bg-emerald-500/40 rounded-full flex items-center justify-center group-hover:scale-125 group-hover:rotate-12 transition-all duration-300">
+              <span className="text-emerald-400 group-hover:text-emerald-300 text-sm font-bold transition-colors duration-300">
+                📰
+              </span>
             </div>
-            <span className="text-emerald-400 font-medium text-sm">
+            <span className="text-emerald-400 group-hover:text-emerald-300 font-medium text-sm transition-colors duration-300">
               {articleData.publisher}
             </span>
           </div>
-          <span className="text-gray-400 text-xs">
+          <span className="text-gray-400 group-hover:text-gray-300 text-xs transition-colors duration-300">
             {formatDate(articleData.date)}
           </span>
         </div>
 
         {/* Article Image */}
         {articleData.thumbnail && (
-          <div className="mb-4 overflow-hidden rounded-xl">
+          <div className="mb-4 overflow-hidden rounded-xl group-hover:shadow-lg group-hover:shadow-emerald-500/20 transition-all duration-500">
             <img
               src={articleData.thumbnail}
               alt={articleData.title}
-              className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500"
+              className="w-full h-48 object-cover group-hover:scale-110 group-hover:rotate-1 transition-all duration-700 ease-out"
               onError={(e) => {
                 e.target.style.display = "none";
               }}
             />
+            {/* Image Overlay Effect */}
+            <div className="absolute inset-0 bg-gradient-to-t from-emerald-500/0 to-transparent group-hover:from-emerald-500/20 transition-all duration-500"></div>
           </div>
         )}
 
         {/* Article Content */}
         <div className="flex-1 flex flex-col">
           <h3
-            className="text-white font-bold text-lg mb-3 line-clamp-2 group-hover:text-emerald-400 transition-colors duration-300"
+            className="text-white font-bold text-lg mb-3 line-clamp-2 group-hover:text-emerald-400 transition-all duration-300 group-hover:scale-105 origin-left"
             style={{ fontFamily: "Space Grotesk, sans-serif" }}
           >
             {formatTitle(articleData.title)}
           </h3>
 
           <p
-            className="text-gray-300 text-sm mb-4 line-clamp-3 flex-1"
+            className="text-gray-300 group-hover:text-gray-200 text-sm mb-4 line-clamp-3 flex-1 transition-colors duration-300"
             style={{ fontFamily: "Inter, sans-serif" }}
           >
             {articleData.description}
@@ -121,12 +125,14 @@ const NewsCard = ({ article, index }) => {
             href={articleData.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 font-medium text-sm transition-colors duration-300 mt-auto group/link"
+            className="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 font-medium text-sm transition-all duration-300 mt-auto group/link px-3 py-2 rounded-lg hover:bg-emerald-500/10 hover:scale-105"
             style={{ fontFamily: "Montserrat, sans-serif" }}
           >
-            Read Full Article
+            <span className="transition-transform duration-300 group-hover/link:translate-x-1">
+              Read Full Article
+            </span>
             <svg
-              className="w-4 h-4 group-hover/link:translate-x-1 transition-transform duration-300"
+              className="w-4 h-4 group-hover/link:translate-x-2 group-hover/link:scale-110 transition-all duration-300"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -139,6 +145,22 @@ const NewsCard = ({ article, index }) => {
               />
             </svg>
           </Link>
+        </div>
+
+        {/* Floating particles effect */}
+        <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden rounded-2xl">
+          <div
+            className="absolute top-1/4 left-1/4 w-1 h-1 bg-emerald-400/0 group-hover:bg-emerald-400/60 rounded-full group-hover:animate-ping transition-all duration-500"
+            style={{ animationDelay: "0s" }}
+          ></div>
+          <div
+            className="absolute top-1/3 right-1/4 w-1 h-1 bg-cyan-400/0 group-hover:bg-cyan-400/60 rounded-full group-hover:animate-ping transition-all duration-500"
+            style={{ animationDelay: "0.3s" }}
+          ></div>
+          <div
+            className="absolute bottom-1/4 left-1/3 w-1 h-1 bg-blue-400/0 group-hover:bg-blue-400/60 rounded-full group-hover:animate-ping transition-all duration-500"
+            style={{ animationDelay: "0.6s" }}
+          ></div>
         </div>
       </div>
     </div>

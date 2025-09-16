@@ -5,13 +5,15 @@ import {
   useGetCryptoDetailsQuery,
   useGetCryptoHistoryQuery,
 } from "../../../services/cryptoApi";
-import Navbar from "../../../components/Navbar";
+import Navbar from "../../../components/navbar";
 import Footer from "../../../components/Footer";
 import LineChart from "../../../components/LineChart";
 
 const CryptoDetails = ({ params }) => {
   const { coinId } = use(params);
   const [timePeriod, setTimePeriod] = useState("7d");
+  const [currency, setCurrency] = useState("USD"); // USD or INR
+  const USD_TO_INR = 83.12; // Approximate exchange rate
 
   const {
     data: cryptoDetails,
@@ -29,19 +31,40 @@ const CryptoDetails = ({ params }) => {
 
   const formatCurrency = (value) => {
     if (!value) return "N/A";
-    if (value >= 1e12) return `$${(value / 1e12).toFixed(2)}T`;
-    if (value >= 1e9) return `$${(value / 1e9).toFixed(2)}B`;
-    if (value >= 1e6) return `$${(value / 1e6).toFixed(2)}M`;
-    if (value >= 1e3) return `$${(value / 1e3).toFixed(2)}K`;
-    return `$${parseFloat(value).toFixed(2)}`;
+
+    let convertedValue = parseFloat(value);
+    let symbol = "$";
+
+    if (currency === "INR") {
+      convertedValue = convertedValue * USD_TO_INR;
+      symbol = "₹";
+    }
+
+    if (convertedValue >= 1e12)
+      return `${symbol}${(convertedValue / 1e12).toFixed(2)}T`;
+    if (convertedValue >= 1e9)
+      return `${symbol}${(convertedValue / 1e9).toFixed(2)}B`;
+    if (convertedValue >= 1e6)
+      return `${symbol}${(convertedValue / 1e6).toFixed(2)}M`;
+    if (convertedValue >= 1e3)
+      return `${symbol}${(convertedValue / 1e3).toFixed(2)}K`;
+    return `${symbol}${convertedValue.toFixed(2)}`;
   };
 
   const formatPrice = (price) => {
     if (!price) return "N/A";
-    const numPrice = parseFloat(price);
-    if (numPrice >= 1) return `$${numPrice.toFixed(2)}`;
-    if (numPrice >= 0.01) return `$${numPrice.toFixed(4)}`;
-    return `$${numPrice.toFixed(8)}`;
+
+    let numPrice = parseFloat(price);
+    let symbol = "$";
+
+    if (currency === "INR") {
+      numPrice = numPrice * USD_TO_INR;
+      symbol = "₹";
+    }
+
+    if (numPrice >= 1) return `${symbol}${numPrice.toFixed(2)}`;
+    if (numPrice >= 0.01) return `${symbol}${numPrice.toFixed(4)}`;
+    return `${symbol}${numPrice.toFixed(8)}`;
   };
 
   const formatNumber = (num) => {
@@ -157,7 +180,17 @@ const CryptoDetails = ({ params }) => {
                   alt={`${coin.name} logo`}
                   className="w-16 h-16 rounded-full"
                   onError={(e) => {
-                    e.target.src = `https://via.placeholder.com/64/64748b/ffffff?text=${coin.symbol[0]}`;
+                    // Create a simple SVG placeholder
+                    const letter = coin.symbol[0].toUpperCase();
+                    const svgData = `data:image/svg+xml,${encodeURIComponent(`
+                      <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+                        <rect width="64" height="64" rx="32" fill="#64748b"/>
+                        <text x="32" y="42" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="28" font-weight="bold">
+                          ${letter}
+                        </text>
+                      </svg>
+                    `)}`;
+                    e.target.src = svgData;
                   }}
                 />
                 <div>
@@ -173,6 +206,34 @@ const CryptoDetails = ({ params }) => {
                       Rank #{coin.rank}
                     </span>
                   </div>
+                </div>
+              </div>
+
+              {/* Currency Toggle */}
+              <div className="flex justify-center md:justify-start">
+                <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl p-1.5 flex items-center gap-1">
+                  <button
+                    onClick={() => setCurrency("USD")}
+                    className={`px-3 py-1.5 rounded-lg font-semibold text-sm transition-all duration-300 ${
+                      currency === "USD"
+                        ? "bg-gradient-to-r from-emerald-500 to-cyan-500 text-white shadow-lg transform scale-105"
+                        : "text-gray-300 hover:text-white hover:bg-white/10"
+                    }`}
+                    style={{ fontFamily: "Inter, sans-serif" }}
+                  >
+                    USD
+                  </button>
+                  <button
+                    onClick={() => setCurrency("INR")}
+                    className={`px-3 py-1.5 rounded-lg font-semibold text-sm transition-all duration-300 ${
+                      currency === "INR"
+                        ? "bg-gradient-to-r from-emerald-500 to-cyan-500 text-white shadow-lg transform scale-105"
+                        : "text-gray-300 hover:text-white hover:bg-white/10"
+                    }`}
+                    style={{ fontFamily: "Inter, sans-serif" }}
+                  >
+                    INR
+                  </button>
                 </div>
               </div>
 

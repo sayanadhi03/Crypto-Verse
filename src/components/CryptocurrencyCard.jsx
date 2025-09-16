@@ -40,7 +40,17 @@ const CryptocurrencyCard = ({ coin, index }) => {
               alt={`${coin.name} logo`}
               className="w-12 h-12 rounded-full group-hover:scale-110 transition-transform duration-300"
               onError={(e) => {
-                e.target.src = `https://via.placeholder.com/48/64748b/ffffff?text=${coin.symbol[0]}`;
+                // Create a simple SVG placeholder
+                const letter = coin.symbol[0].toUpperCase();
+                const svgData = `data:image/svg+xml,${encodeURIComponent(`
+                  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+                    <rect width="48" height="48" rx="24" fill="#64748b"/>
+                    <text x="24" y="32" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="20" font-weight="bold">
+                      ${letter}
+                    </text>
+                  </svg>
+                `)}`;
+                e.target.src = svgData;
               }}
             />
             <div className="absolute -top-1 -right-1 bg-gradient-to-r from-emerald-400 to-cyan-500 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center">

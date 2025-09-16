@@ -14,9 +14,6 @@ const GlobalStats = () => {
   const { data: ethData, isFetching: ethFetching } =
     useGetCryptoDetailsQuery("razxDUgYGNAdQ");
 
-  console.log("Global Stats:", globalStats);
-  console.log("ETH Data:", ethData);
-
   // Display loading state
   if (isFetching || ethFetching) {
     return (
@@ -351,7 +348,7 @@ const GlobalStats = () => {
         </div>
 
         {/* Example crypto details link */}
-        <div className="text-center">
+        <div className="text-center mt-12 sm:mt-16">
           <p
             className="text-gray-300 mb-6 text-base sm:text-xl font-medium tracking-wide"
             style={{ fontFamily: "Poppins, Inter, sans-serif" }}
@@ -359,7 +356,7 @@ const GlobalStats = () => {
             Explore individual cryptocurrencies:
           </p>
           <Link
-            href="/crypto/bitcoin"
+            href="/crypto/Qwsogvtv82FCd"
             className="inline-block bg-gradient-to-r from-orange-500 via-red-500 to-yellow-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-2xl font-bold hover:from-orange-600 hover:to-yellow-700 transition-all duration-300 transform hover:scale-105 shadow-2xl text-sm sm:text-lg tracking-wide hover:shadow-orange-500/25"
             style={{ fontFamily: "Montserrat, sans-serif" }}
           >

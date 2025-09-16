@@ -13,7 +13,15 @@ import { cn } from "@/lib/utils";
 
 const Navbar = () => {
   return (
-    <nav className="bg-gray-900 text-white sticky top-0 z-50 shadow-md border-b">
+    <nav
+      className="bg-gray-900 text-white sticky top-0 z-50 shadow-md border-b"
+      style={{
+        scrollBehavior: "smooth",
+        willChange: "transform",
+        transform: "translateZ(0)",
+        backfaceVisibility: "hidden",
+      }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
         <div className="flex items-center">
           <Link

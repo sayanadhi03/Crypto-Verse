@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import Navbar from "../../components/Navbar";
+import Navbar from "../../components/navbar";
 import Footer from "../../components/Footer";
 import NewsCard from "../../components/NewsCard";
 import { useGetCryptoNewsQuery } from "../../services/newsApi";
@@ -17,9 +17,6 @@ const News = () => {
     category: newsCategory,
     count,
   });
-
-  console.log("News data:", news);
-  console.log("News error:", error);
 
   const categories = [
     { key: "cryptocurrency", label: "Cryptocurrency", icon: "₿" },

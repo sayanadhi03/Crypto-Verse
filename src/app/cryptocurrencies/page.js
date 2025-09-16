@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import Navbar from "../../components/Navbar";
+import Navbar from "../../components/navbar";
 import Footer from "../../components/Footer";
 import CryptocurrencyCard from "../../components/CryptocurrencyCard";
 import { useGetCryptosQuery } from "../../services/cryptoApi";
