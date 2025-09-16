@@ -22,25 +22,30 @@ export default function Home() {
           waveOpacity={0.5}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-8">
-            <h1
-              className="text-3xl sm:text-4xl lg:text-6xl font-black mb-12 sm:mb-20 text-center tracking-tight leading-tight"
-              style={{
-                fontFamily: "Inter, system-ui, -apple-system, sans-serif",
-              }}
+            <div
+              className="min-h-[120px] sm:min-h-[140px] lg:min-h-[200px] flex items-center justify-center"
+              style={{ contain: "layout" }}
             >
-              <Typewriter
-                text="Welcome to "
-                highlightText="Crypto Verse"
-                speed={80}
-                delay={1000}
-                className="bg-gradient-to-r from-slate-200 via-white to-slate-300 bg-clip-text text-transparent"
-                highlightClassName="block sm:inline bg-gradient-to-r from-emerald-400 to-teal-500 bg-clip-text text-transparent font-extrabold"
-                highlightStyle={{
-                  fontFamily: "Space Grotesk, Inter, sans-serif",
+              <h1
+                className="text-3xl sm:text-4xl lg:text-6xl font-black mb-12 sm:mb-20 text-center tracking-tight leading-tight"
+                style={{
+                  fontFamily: "Inter, system-ui, -apple-system, sans-serif",
                 }}
-                showCursor={true}
-              />
-            </h1>
+              >
+                <Typewriter
+                  text="Welcome to "
+                  highlightText="Crypto Verse"
+                  speed={80}
+                  delay={1000}
+                  className="bg-gradient-to-r from-slate-200 via-white to-slate-300 bg-clip-text text-transparent"
+                  highlightClassName="block sm:inline bg-gradient-to-r from-emerald-400 to-teal-500 bg-clip-text text-transparent font-extrabold"
+                  highlightStyle={{
+                    fontFamily: "Space Grotesk, Inter, sans-serif",
+                  }}
+                  showCursor={true}
+                />
+              </h1>
+            </div>
 
             {/* Global Crypto Stats */}
             <div className="mb-16">

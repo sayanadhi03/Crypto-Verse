@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback, useMemo } from "react";
 
 const Typewriter = ({
   text,
@@ -16,7 +16,10 @@ const Typewriter = ({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTypingComplete, setIsTypingComplete] = useState(false);
 
-  const fullText = highlightText ? `${text}${highlightText}` : text;
+  const fullText = useMemo(
+    () => (highlightText ? `${text}${highlightText}` : text),
+    [text, highlightText]
+  );
 
   useEffect(() => {
     if (currentIndex < fullText.length) {

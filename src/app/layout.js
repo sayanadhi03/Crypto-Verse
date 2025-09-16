@@ -1,5 +1,6 @@
 import { Inter, Space_Grotesk, Poppins, Montserrat } from "next/font/google";
 import "./globals.css";
+import { Providers } from "./providers";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -39,7 +40,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${inter.variable} ${spaceGrotesk.variable} ${poppins.variable} ${montserrat.variable} antialiased dark font-inter`}
       >
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
