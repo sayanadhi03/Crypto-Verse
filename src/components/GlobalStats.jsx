@@ -273,10 +273,12 @@ const GlobalStats = () => {
                 </div>
                 <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden mt-3">
                   <div
-                    className="h-full bg-gradient-to-r from-orange-400 to-yellow-500 rounded-full transition-all duration-1000 ease-out animate-expandWidth"
+                    className="h-full bg-gradient-to-r from-orange-400 to-yellow-500 rounded-full transition-all duration-1000 ease-out"
                     style={{
                       width: `${stats?.btcDominance || 0}%`,
-                      animationDelay: "1s",
+                      transform: "scaleX(0)",
+                      transformOrigin: "left",
+                      animation: "progressBar 1.5s ease-out 1s forwards",
                     }}
                   ></div>
                 </div>
@@ -308,10 +310,12 @@ const GlobalStats = () => {
                 </div>
                 <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden mt-3">
                   <div
-                    className="h-full bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full transition-all duration-1000 ease-out animate-expandWidth"
+                    className="h-full bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full transition-all duration-1000 ease-out"
                     style={{
                       width: `${ethDominance || 0}%`,
-                      animationDelay: "1.2s",
+                      transform: "scaleX(0)",
+                      transformOrigin: "left",
+                      animation: "progressBar 1.5s ease-out 1.2s forwards",
                     }}
                   ></div>
                 </div>
@@ -386,12 +390,12 @@ const GlobalStats = () => {
           }
         }
 
-        @keyframes expandWidth {
+        @keyframes progressBar {
           from {
-            width: 0%;
+            transform: scaleX(0);
           }
           to {
-            width: var(--target-width);
+            transform: scaleX(1);
           }
         }
 
@@ -403,7 +407,6 @@ const GlobalStats = () => {
             transform: translateX(100%);
           }
         }
-
         .animate-fadeIn {
           animation: fadeIn 0.8s ease-out forwards;
         }
@@ -411,13 +414,7 @@ const GlobalStats = () => {
         .animate-slideInUp {
           opacity: 0;
           animation: slideInUp 0.6s ease-out forwards;
-        }
-
-        .animate-expandWidth {
-          animation: expandWidth 1.5s ease-out forwards;
-        }
-
-        /* Smooth scroll behavior */
+        } /* Smooth scroll behavior */
         html {
           scroll-behavior: smooth;
         }
