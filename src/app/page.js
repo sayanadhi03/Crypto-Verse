@@ -4,6 +4,7 @@ import Navbar from "./../components/Navbar";
 import Footer from "@/components/Footer";
 import Card from "@/components/Card";
 import GlobalStats from "@/components/GlobalStats";
+import Typewriter from "@/components/Typewriter";
 import { WavyBackground } from "@/components/ui/wavy-background";
 
 export default function Home() {
@@ -22,18 +23,23 @@ export default function Home() {
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-8">
             <h1
-              className="text-3xl sm:text-4xl lg:text-6xl font-black mb-12 sm:mb-20 text-center bg-gradient-to-r from-slate-200 via-white to-slate-300 bg-clip-text text-transparent tracking-tight leading-tight"
+              className="text-3xl sm:text-4xl lg:text-6xl font-black mb-12 sm:mb-20 text-center tracking-tight leading-tight"
               style={{
                 fontFamily: "Inter, system-ui, -apple-system, sans-serif",
               }}
             >
-              Welcome to{" "}
-              <span
-                className="block sm:inline bg-gradient-to-r from-emerald-400 to-teal-500 bg-clip-text text-transparent font-extrabold"
-                style={{ fontFamily: "Space Grotesk, Inter, sans-serif" }}
-              >
-                Crypto Verse
-              </span>
+              <Typewriter
+                text="Welcome to "
+                highlightText="Crypto Verse"
+                speed={80}
+                delay={1000}
+                className="bg-gradient-to-r from-slate-200 via-white to-slate-300 bg-clip-text text-transparent"
+                highlightClassName="block sm:inline bg-gradient-to-r from-emerald-400 to-teal-500 bg-clip-text text-transparent font-extrabold"
+                highlightStyle={{
+                  fontFamily: "Space Grotesk, Inter, sans-serif",
+                }}
+                showCursor={true}
+              />
             </h1>
 
             {/* Global Crypto Stats */}
