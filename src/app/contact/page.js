@@ -145,10 +145,10 @@ export default function Contact() {
           </div>
 
           {/* Navigation */}
-          <div className="space-y-6">
+          <div className="p-6 space-y-6">
             <Link
               href="/"
-              className="group inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white font-bold text-lg rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-emerald-500/25"
+              className="group inline-flex items-center gap-6 px-8 py-4 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 text-white font-bold text-lg rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-emerald-500/25"
               style={{ fontFamily: "Inter, sans-serif" }}
             >
               <svg
