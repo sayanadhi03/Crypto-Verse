@@ -1,0 +1,19 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="16" cy="16" r="15" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+  
+  <!-- Bitcoin-style "C" for CryptoVerse -->
+  <path d="M11 8 L11 24 M11 12 L21 12 M11 20 L21 20" stroke="#3b82f6" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  
+  <!-- Small decorative elements representing blockchain/network -->
+  <circle cx="8" cy="8" r="1.5" fill="#3b82f6"/>
+  <circle cx="24" cy="8" r="1.5" fill="#3b82f6"/>
+  <circle cx="8" cy="24" r="1.5" fill="#3b82f6"/>
+  <circle cx="24" cy="24" r="1.5" fill="#3b82f6"/>
+  
+  <!-- Connecting lines -->
+  <line x1="8" y1="8" x2="11" y2="11" stroke="#3b82f6" stroke-width="1" opacity="0.5"/>
+  <line x1="24" y1="8" x2="21" y2="11" stroke="#3b82f6" stroke-width="1" opacity="0.5"/>
+  <line x1="8" y1="24" x2="11" y2="21" stroke="#3b82f6" stroke-width="1" opacity="0.5"/>
+  <line x1="24" y1="24" x2="21" y2="21" stroke="#3b82f6" stroke-width="1" opacity="0.5"/>
+</svg>

@@ -1,0 +1,10 @@
+<!-- This is a placeholder. In a real project, you would replace favicon.ico with a proper ICO file.
+     For now, the SVG icon.svg will be used as the primary favicon.
+     
+     To create a proper favicon.ico:
+     1. Use an online converter to convert the icon.svg to a 32x32 ICO file
+     2. Or use a tool like ImageMagick: convert icon.svg -resize 32x32 favicon.ico
+     3. Replace the existing favicon.ico file
+     
+     The current SVG implementation will work in all modern browsers.
+-->

@@ -1,0 +1,38 @@
+<svg width="180" height="180" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle with gradient -->
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e293b;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  
+  <circle cx="90" cy="90" r="85" fill="url(#bg)" stroke="#3b82f6" stroke-width="4"/>
+  
+  <!-- Main "C" for CryptoVerse -->
+  <path d="M60 45 L60 135 M60 70 L120 70 M60 110 L120 110" 
+        stroke="#ffffff" stroke-width="12" fill="none" stroke-linecap="round"/>
+  
+  <!-- Blockchain network nodes -->
+  <circle cx="35" cy="35" r="8" fill="#3b82f6"/>
+  <circle cx="145" cy="35" r="8" fill="#3b82f6"/>
+  <circle cx="35" cy="145" r="8" fill="#3b82f6"/>
+  <circle cx="145" cy="145" r="8" fill="#3b82f6"/>
+  
+  <!-- Additional network nodes -->
+  <circle cx="90" cy="25" r="6" fill="#60a5fa"/>
+  <circle cx="25" cy="90" r="6" fill="#60a5fa"/>
+  <circle cx="155" cy="90" r="6" fill="#60a5fa"/>
+  <circle cx="90" cy="155" r="6" fill="#60a5fa"/>
+  
+  <!-- Connecting network lines -->
+  <line x1="35" y1="35" x2="60" y2="60" stroke="#3b82f6" stroke-width="3" opacity="0.6"/>
+  <line x1="145" y1="35" x2="120" y2="60" stroke="#3b82f6" stroke-width="3" opacity="0.6"/>
+  <line x1="35" y1="145" x2="60" y2="120" stroke="#3b82f6" stroke-width="3" opacity="0.6"/>
+  <line x1="145" y1="145" x2="120" y2="120" stroke="#3b82f6" stroke-width="3" opacity="0.6"/>
+  
+  <line x1="90" y1="25" x2="90" y2="45" stroke="#60a5fa" stroke-width="2" opacity="0.6"/>
+  <line x1="25" y1="90" x2="45" y2="90" stroke="#60a5fa" stroke-width="2" opacity="0.6"/>
+  <line x1="155" y1="90" x2="135" y2="90" stroke="#60a5fa" stroke-width="2" opacity="0.6"/>
+  <line x1="90" y1="155" x2="90" y2="135" stroke="#60a5fa" stroke-width="2" opacity="0.6"/>
+</svg>

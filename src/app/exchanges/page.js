@@ -2,7 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import { useGetExchangesQuery } from "../../services/cryptoApi";
-import Navbar from "../../components/navbar";
+import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import ExchangeCard from "../../components/ExchangeCard";
 

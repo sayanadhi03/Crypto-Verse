@@ -35,7 +35,13 @@ const NewsCard = ({ article, index }) => {
       article.summary ||
       article.content ||
       "No description available",
-    url: article.url || article.link || article.source_url || "#",
+    url:
+      article.url ||
+      article.link ||
+      article.source_url ||
+      article.web_url ||
+      article.uri ||
+      "#",
     thumbnail:
       article.thumbnail ||
       article.urlToImage ||
@@ -60,12 +66,29 @@ const NewsCard = ({ article, index }) => {
       new Date().toISOString(),
   };
 
+  // Validate URL and make sure it's not empty or just "#"
+  const isValidUrl =
+    articleData.url &&
+    articleData.url !== "#" &&
+    articleData.url !== "" &&
+    (articleData.url.startsWith("http://") ||
+      articleData.url.startsWith("https://"));
+
+  const finalUrl = isValidUrl ? articleData.url : null;
+
+  const handleCardClick = () => {
+    if (finalUrl) {
+      window.open(finalUrl, "_blank", "noopener,noreferrer");
+    }
+  };
+
   return (
     <div
       className="group bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 hover:bg-white/10 hover:border-emerald-500/30 transition-all duration-500 hover:-translate-y-3 hover:scale-[1.02] hover:shadow-2xl hover:shadow-emerald-500/20 animate-slideInUp cursor-pointer relative overflow-hidden"
       style={{
         animationDelay: `${index * 100}ms`,
       }}
+      onClick={handleCardClick}
     >
       {/* Animated Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/0 via-cyan-500/0 to-blue-500/0 group-hover:from-emerald-500/5 group-hover:via-cyan-500/5 group-hover:to-blue-500/5 transition-all duration-700 ease-out rounded-2xl"></div>
@@ -121,30 +144,55 @@ const NewsCard = ({ article, index }) => {
           </p>
 
           {/* Read More Button */}
-          <Link
-            href={articleData.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 font-medium text-sm transition-all duration-300 mt-auto group/link px-3 py-2 rounded-lg hover:bg-emerald-500/10 hover:scale-105"
-            style={{ fontFamily: "Montserrat, sans-serif" }}
-          >
-            <span className="transition-transform duration-300 group-hover/link:translate-x-1">
-              Read Full Article
-            </span>
-            <svg
-              className="w-4 h-4 group-hover/link:translate-x-2 group-hover/link:scale-110 transition-all duration-300"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+          {finalUrl ? (
+            <a
+              href={finalUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 font-medium text-sm transition-all duration-300 mt-auto group/link px-3 py-2 rounded-lg hover:bg-emerald-500/10 hover:scale-105"
+              style={{ fontFamily: "Montserrat, sans-serif" }}
+              onClick={(e) => {
+                e.stopPropagation();
+                if (finalUrl) {
+                  window.open(finalUrl, "_blank", "noopener,noreferrer");
+                }
+              }}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-              />
-            </svg>
-          </Link>
+              <span className="transition-transform duration-300 group-hover/link:translate-x-1">
+                Read Full Article
+              </span>
+              <svg
+                className="w-4 h-4 group-hover/link:translate-x-2 group-hover/link:scale-110 transition-all duration-300"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                />
+              </svg>
+            </a>
+          ) : (
+            <div className="inline-flex items-center gap-2 text-gray-500 font-medium text-sm mt-auto px-3 py-2 rounded-lg cursor-not-allowed">
+              <span>Article Link Unavailable</span>
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728L5.636 5.636m12.728 12.728L5.636 5.636"
+                />
+              </svg>
+            </div>
+          )}
         </div>
 
         {/* Floating particles effect */}

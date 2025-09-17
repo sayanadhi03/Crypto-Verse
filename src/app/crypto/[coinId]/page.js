@@ -5,7 +5,7 @@ import {
   useGetCryptoDetailsQuery,
   useGetCryptoHistoryQuery,
 } from "../../../services/cryptoApi";
-import Navbar from "../../../components/navbar";
+import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
 import LineChart from "../../../components/LineChart";
 
