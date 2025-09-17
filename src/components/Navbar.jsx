@@ -36,11 +36,39 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
         <div className="flex items-center">
-          <Link
-            href="/"
-            className="text-2xl font-bold text-indigo-400 tracking-tight hover:text-indigo-300 transition-colors"
-          >
-            Crypto Verse
+          <Link href="/" className="flex items-center space-x-3 group">
+            {/* Professional Logo Icon */}
+            <div className="relative">
+              {/* Main logo container with gradient background */}
+              <div className="w-10 h-10 bg-gradient-to-br from-cyan-400 via-blue-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-cyan-500/25 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
+                {/* Glass overlay effect */}
+                <div className="absolute inset-0 bg-white/20 rounded-xl"></div>
+                {/* Currency symbol */}
+                <span className="relative text-white font-bold text-xl group-hover:scale-125 transition-transform duration-300">
+                  ₵
+                </span>
+              </div>
+              {/* Floating particles around logo */}
+              <div className="absolute -top-1 -right-1 w-2 h-2 bg-cyan-400 rounded-full opacity-70 group-hover:opacity-100 group-hover:animate-ping transition-all duration-300"></div>
+              <div className="absolute -bottom-1 -left-1 w-1.5 h-1.5 bg-blue-400 rounded-full opacity-50 group-hover:opacity-80 group-hover:animate-pulse transition-all duration-300"></div>
+            </div>
+
+            {/* Enhanced Typography */}
+            <div className="flex flex-col">
+              <span className="text-2xl font-extrabold tracking-wide leading-none">
+                <span className="text-white drop-shadow-sm group-hover:text-gray-100 transition-colors duration-300">
+                  Crypto
+                </span>
+                <span className="text-transparent bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text drop-shadow-sm group-hover:from-cyan-300 group-hover:via-blue-400 group-hover:to-purple-500 transition-all duration-300">
+                  {" "}
+                  Verse
+                </span>
+              </span>
+              {/* Professional tagline */}
+              <span className="text-xs text-gray-400 font-medium tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-1 group-hover:translate-y-0">
+                Digital Assets Hub
+              </span>
+            </div>
           </Link>
         </div>
 
