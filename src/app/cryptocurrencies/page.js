@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
-import CryptocurrencyCard from "../../components/CryptocurrencyCard";
+import ExpandableCryptoCard from "../../components/ExpandableCryptoCard";
 import { useGetCryptosQuery } from "../../services/cryptoApi";
 import {
   Pagination,
@@ -18,7 +18,7 @@ const Cryptocurrencies = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [isPageChanging, setIsPageChanging] = useState(false);
-  const itemsPerPage = 20; // Show 20 cryptocurrencies per page
+  const itemsPerPage = 8; // Show 10 cryptocurrencies per page
   const totalCryptos = 100; // Fetch more data for pagination
 
   const {
@@ -133,7 +133,7 @@ const Cryptocurrencies = () => {
                   placeholder="Search cryptocurrencies..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full px-4 py-3 pl-12 bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:border-transparent transition-all duration-300"
+                  className="w-full px-4 py-3 pl-12 bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent transition-all duration-300"
                   style={{ fontFamily: "Inter, sans-serif" }}
                 />
                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
@@ -195,14 +195,8 @@ const Cryptocurrencies = () => {
           {/* Cryptocurrencies Grid */}
           {!isFetching && !error && currentCryptos && !isPageChanging && (
             <>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
-                {currentCryptos.map((coin, index) => (
-                  <CryptocurrencyCard
-                    key={coin.uuid}
-                    coin={coin}
-                    index={startIndex + index} // Adjust index for animation delay
-                  />
-                ))}
+              <div className="mb-12">
+                <ExpandableCryptoCard coins={currentCryptos} />
               </div>
             </>
           )}
@@ -285,8 +279,8 @@ const Cryptocurrencies = () => {
                               isActive={currentPage === pageNum}
                               className={`cursor-pointer ${
                                 currentPage === pageNum
-                                  ? "bg-emerald-500 text-white"
-                                  : "hover:bg-white/10 text-white"
+                                  ? "bg-gradient-to-r from-orange-500 to-pink-500 text-white border-orange-400"
+                                  : "hover:bg-white/10 text-white border-white/20"
                               }`}
                             >
                               {pageNum}
@@ -324,7 +318,7 @@ const Cryptocurrencies = () => {
                   {Math.min(endIndex, filteredCryptos.length)} of{" "}
                   {filteredCryptos.length} cryptocurrencies
                   {searchTerm && (
-                    <span className="ml-2 text-emerald-400">
+                    <span className="ml-2 text-orange-400">
                       (filtered from {cryptosList?.data?.coins?.length} total)
                     </span>
                   )}
