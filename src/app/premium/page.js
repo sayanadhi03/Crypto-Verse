@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
-import { WavyBackground } from "../../components/ui/wavy-background";
 
 export default function Premium() {
   const [selectedPlan, setSelectedPlan] = useState("pro");
@@ -70,15 +69,10 @@ export default function Premium() {
   return (
     <>
       <Navbar />
-      <WavyBackground
-        className="min-h-screen py-20"
-        colors={["#38bdf8", "#818cf8", "#c084fc", "#e879f9", "#22d3ee"]}
-        waveWidth={50}
-        backgroundFill="#0f172a"
-        blur={10}
-        speed="slow"
-        waveOpacity={0.5}
-      >
+      <div className="min-h-screen bg-gradient-to-br from-black via-slate-900 to-black py-20 relative overflow-hidden">
+        {/* Professional Dark Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/5 via-transparent to-cyan-900/5 pointer-events-none"></div>
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Header Section */}
           <div className="text-center mb-16">
@@ -412,7 +406,7 @@ export default function Premium() {
             </div>
           </div>
         </div>
-      </WavyBackground>
+      </div>
       <Footer />
     </>
   );

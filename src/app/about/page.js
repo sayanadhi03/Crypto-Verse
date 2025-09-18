@@ -7,8 +7,11 @@ const About = () => {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black pt-8 pb-20">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen bg-gradient-to-br from-black via-slate-900 to-black pt-8 pb-20 relative overflow-hidden">
+        {/* Professional Dark Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/5 via-transparent to-teal-900/5 pointer-events-none"></div>
+
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Hero Section */}
           <div className="text-center mb-16">
             <h1

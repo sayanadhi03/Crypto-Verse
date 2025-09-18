@@ -148,12 +148,16 @@ const CryptoDetails = ({ params }) => {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 pt-4 pb-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-indigo-900 pt-8 pb-20 relative overflow-hidden">
+        {/* Attractive Coin Detail Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-orange-500/8 via-purple-500/5 to-pink-500/8 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-gradient-to-tr from-yellow-400/3 via-transparent to-cyan-400/5 pointer-events-none"></div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Back Button */}
           <Link
             href="/cryptocurrencies"
-            className="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 mb-6 transition-colors duration-300"
+            className="inline-flex items-center gap-2 text-orange-400 hover:text-orange-300 mb-6 transition-colors duration-300"
           >
             <svg
               className="w-5 h-5"
@@ -202,7 +206,7 @@ const CryptoDetails = ({ params }) => {
                   </h1>
                   <div className="flex items-center gap-4">
                     <span className="text-gray-400 text-lg">{coin.symbol}</span>
-                    <span className="bg-gradient-to-r from-emerald-400 to-cyan-500 text-white text-sm font-bold px-3 py-1 rounded-full">
+                    <span className="bg-gradient-to-r from-orange-400 to-pink-500 text-white text-sm font-bold px-3 py-1 rounded-full">
                       Rank #{coin.rank}
                     </span>
                   </div>
@@ -280,8 +284,8 @@ const CryptoDetails = ({ params }) => {
                         onClick={() => setTimePeriod(period)}
                         className={`px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
                           timePeriod === period
-                            ? "bg-emerald-500 text-white shadow-lg"
-                            : "bg-white/10 text-gray-300 hover:bg-white/20 hover:text-white"
+                            ? "bg-gradient-to-r from-orange-500 to-pink-500 text-white shadow-lg shadow-orange-500/25"
+                            : "bg-white/10 text-gray-300 hover:bg-gradient-to-r hover:from-orange-500/20 hover:to-pink-500/20 hover:text-white"
                         }`}
                       >
                         {period.toUpperCase()}
@@ -314,8 +318,8 @@ const CryptoDetails = ({ params }) => {
             {/* Market Cap */}
             <div className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center">
-                  <span className="text-blue-400">💰</span>
+                <div className="w-10 h-10 bg-orange-500/20 rounded-full flex items-center justify-center">
+                  <span className="text-orange-400">💰</span>
                 </div>
                 <h3 className="text-white font-semibold">Market Cap</h3>
               </div>
@@ -327,8 +331,8 @@ const CryptoDetails = ({ params }) => {
             {/* 24h Volume */}
             <div className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-green-500/20 rounded-full flex items-center justify-center">
-                  <span className="text-green-400">📊</span>
+                <div className="w-10 h-10 bg-pink-500/20 rounded-full flex items-center justify-center">
+                  <span className="text-pink-400">📊</span>
                 </div>
                 <h3 className="text-white font-semibold">24h Volume</h3>
               </div>
@@ -340,8 +344,8 @@ const CryptoDetails = ({ params }) => {
             {/* Supply */}
             <div className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-purple-500/20 rounded-full flex items-center justify-center">
-                  <span className="text-purple-400">🪙</span>
+                <div className="w-10 h-10 bg-yellow-500/20 rounded-full flex items-center justify-center">
+                  <span className="text-yellow-400">🪙</span>
                 </div>
                 <h3 className="text-white font-semibold">Circulating Supply</h3>
               </div>
@@ -358,8 +362,8 @@ const CryptoDetails = ({ params }) => {
             {/* All Time High */}
             <div className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-yellow-500/20 rounded-full flex items-center justify-center">
-                  <span className="text-yellow-400">📈</span>
+                <div className="w-10 h-10 bg-amber-500/20 rounded-full flex items-center justify-center">
+                  <span className="text-amber-400">📈</span>
                 </div>
                 <h3 className="text-white font-semibold">All Time High</h3>
               </div>
@@ -378,8 +382,8 @@ const CryptoDetails = ({ params }) => {
             {/* Number of Markets */}
             <div className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-cyan-500/20 rounded-full flex items-center justify-center">
-                  <span className="text-cyan-400">🏪</span>
+                <div className="w-10 h-10 bg-rose-500/20 rounded-full flex items-center justify-center">
+                  <span className="text-rose-400">🏪</span>
                 </div>
                 <h3 className="text-white font-semibold">Markets</h3>
               </div>
@@ -391,8 +395,8 @@ const CryptoDetails = ({ params }) => {
             {/* Number of Exchanges */}
             <div className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6">
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-indigo-500/20 rounded-full flex items-center justify-center">
-                  <span className="text-indigo-400">🔄</span>
+                <div className="w-10 h-10 bg-orange-500/20 rounded-full flex items-center justify-center">
+                  <span className="text-orange-400">🔄</span>
                 </div>
                 <h3 className="text-white font-semibold">Exchanges</h3>
               </div>

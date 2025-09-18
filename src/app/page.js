@@ -5,22 +5,27 @@ import Footer from "@/components/Footer";
 import Card from "@/components/Card";
 import GlobalStats from "@/components/GlobalStats";
 import FuzzyText from "@/components/FuzzyText";
-import { WavyBackground } from "@/components/ui/wavy-background";
+import { Spotlight } from "@/components/ui/spotlight-new";
 
 export default function Home() {
   return (
     <>
       <div className="relative">
         <Navbar />
-        <WavyBackground
-          className="min-h-screen pt-8 pb-20"
-          colors={["#38bdf8", "#818cf8", "#c084fc", "#e879f9", "#22d3ee"]}
-          waveWidth={50}
-          backgroundFill="#0f172a"
-          blur={10}
-          speed="slow"
-          waveOpacity={0.5}
-        >
+        <div className="min-h-screen bg-gradient-to-br from-black via-slate-900 to-black pt-8 pb-20 relative overflow-hidden">
+          {/* Spotlight Animation Background */}
+          <Spotlight
+            gradientFirst="radial-gradient(68.54% 68.72% at 55.02% 31.46%, hsla(180, 100%, 85%, .08) 0, hsla(180, 100%, 55%, .02) 50%, hsla(180, 100%, 45%, 0) 80%)"
+            gradientSecond="radial-gradient(50% 50% at 50% 50%, hsla(160, 100%, 85%, .06) 0, hsla(160, 100%, 55%, .02) 80%, transparent 100%)"
+            gradientThird="radial-gradient(50% 50% at 50% 50%, hsla(200, 100%, 85%, .04) 0, hsla(200, 100%, 45%, .02) 80%, transparent 100%)"
+            translateY={-300}
+            width={600}
+            height={1400}
+            smallWidth={280}
+            duration={8}
+            xOffset={120}
+          />
+
           <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8 relative z-10 py-4 sm:py-8">
             <div
               className="min-h-[80px] sm:min-h-[120px] lg:min-h-[180px] flex items-center justify-center"
@@ -48,7 +53,7 @@ export default function Home() {
               <GlobalStats />
             </div>
           </div>
-        </WavyBackground>
+        </div>
         <Footer />
       </div>
     </>

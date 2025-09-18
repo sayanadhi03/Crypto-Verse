@@ -105,49 +105,39 @@ const Exchanges = () => {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 pt-4 pb-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen bg-gradient-to-br from-black via-slate-900 to-black pt-8 pb-20 relative overflow-hidden">
+        {/* Professional Dark Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/5 via-transparent to-teal-900/5 pointer-events-none"></div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Header Section */}
-          <div className="text-center mb-12">
+          <div className="text-center mb-8 lg:mb-12">
             <h1
-              className="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 bg-gradient-to-r from-slate-200 via-white to-slate-300 bg-clip-text text-transparent"
+              className="text-4xl lg:text-5xl font-extrabold bg-gradient-to-r from-emerald-400 to-cyan-500 bg-clip-text text-transparent mb-4"
               style={{ fontFamily: "Space Grotesk, sans-serif" }}
             >
-              Top Crypto{" "}
-              <span className="bg-gradient-to-r from-emerald-400 to-teal-500 bg-clip-text text-transparent">
-                Exchanges
-              </span>
+              Top Crypto Exchanges
             </h1>
 
-            {/* Attractive Demo Mode Badge */}
+            {/* Demo Mode Badge */}
             {demoMode && (
               <div className="flex justify-center mb-6">
-                <div className="relative inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 rounded-full shadow-2xl hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-105 animate-pulse">
-                  <div className="absolute inset-0 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 rounded-full blur opacity-75 animate-pulse"></div>
-                  <div className="relative flex items-center gap-2">
-                    <div className="w-2 h-2 bg-white rounded-full animate-bounce"></div>
-                    <span
-                      className="text-white font-bold text-sm tracking-wide"
-                      style={{ fontFamily: "Inter, sans-serif" }}
-                    >
-                      🚀 INTERACTIVE DEMO MODE
-                    </span>
-                    <div
-                      className="w-2 h-2 bg-white rounded-full animate-bounce"
-                      style={{ animationDelay: "0.1s" }}
-                    ></div>
-                  </div>
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-lg border border-white/20 rounded-full">
+                  <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                  <span className="text-white text-sm font-medium">
+                    Demo Mode
+                  </span>
                 </div>
               </div>
             )}
 
-            {/* Premium Subscription Notice */}
+            {/* Premium Plan Notice */}
             {demoMode && (
               <div className="max-w-4xl mx-auto mb-8">
-                <div className="relative bg-gradient-to-r from-slate-800/50 via-slate-700/50 to-slate-800/50 backdrop-blur-xl border border-slate-600/50 rounded-2xl p-6 shadow-2xl">
+                <div className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-8">
                   {/* Premium Icon */}
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <div className="bg-gradient-to-r from-yellow-400 to-amber-500 rounded-full p-3 shadow-xl">
+                  <div className="flex justify-center mb-6">
+                    <div className="bg-gradient-to-r from-emerald-400 to-cyan-500 rounded-full p-3 shadow-xl">
                       <svg
                         className="w-6 h-6 text-white"
                         fill="currentColor"
@@ -162,16 +152,16 @@ const Exchanges = () => {
                     </div>
                   </div>
 
-                  <div className="text-center pt-4">
+                  <div className="text-center">
                     <h3
-                      className="text-2xl font-bold mb-3 bg-gradient-to-r from-yellow-400 to-amber-500 bg-clip-text text-transparent"
+                      className="text-2xl font-bold mb-3 bg-gradient-to-r from-emerald-400 to-cyan-500 bg-clip-text text-transparent"
                       style={{ fontFamily: "Space Grotesk, sans-serif" }}
                     >
-                      Premium Subscription Required
+                      Premium Plan Required
                     </h3>
                     <p
-                      className="text-gray-300 mb-4 leading-relaxed"
-                      style={{ fontFamily: "Inter, sans-serif" }}
+                      className="text-gray-300 mb-6 leading-relaxed"
+                      style={{ fontFamily: "Poppins, sans-serif" }}
                     >
                       Access real-time market data, live trading volumes, and
                       comprehensive exchange analytics with our
@@ -185,7 +175,7 @@ const Exchanges = () => {
 
                     {/* Features Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-                      <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-600/30">
+                      <div className="bg-white/5 rounded-xl p-4 border border-white/10">
                         <div className="text-emerald-400 text-xl mb-2">📊</div>
                         <h4 className="text-white font-semibold text-sm mb-1">
                           Real-Time Data
@@ -194,8 +184,8 @@ const Exchanges = () => {
                           Live market updates
                         </p>
                       </div>
-                      <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-600/30">
-                        <div className="text-blue-400 text-xl mb-2">🔄</div>
+                      <div className="bg-white/5 rounded-xl p-4 border border-white/10">
+                        <div className="text-cyan-400 text-xl mb-2">🔄</div>
                         <h4 className="text-white font-semibold text-sm mb-1">
                           API Integration
                         </h4>
@@ -203,8 +193,8 @@ const Exchanges = () => {
                           Direct exchange feeds
                         </p>
                       </div>
-                      <div className="bg-slate-800/50 rounded-xl p-4 border border-slate-600/30">
-                        <div className="text-purple-400 text-xl mb-2">📈</div>
+                      <div className="bg-white/5 rounded-xl p-4 border border-white/10">
+                        <div className="text-emerald-400 text-xl mb-2">📈</div>
                         <h4 className="text-white font-semibold text-sm mb-1">
                           Advanced Analytics
                         </h4>
@@ -219,11 +209,9 @@ const Exchanges = () => {
                       <Link
                         href="/premium"
                         className="group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 hover:from-emerald-600 hover:via-teal-600 hover:to-cyan-600 text-white font-bold rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-emerald-500/25"
+                        style={{ fontFamily: "Space Grotesk, sans-serif" }}
                       >
-                        <span
-                          className="relative z-10"
-                          style={{ fontFamily: "Inter, sans-serif" }}
-                        >
+                        <span className="relative z-10">
                           ⚡ Upgrade to Premium
                         </span>
                         <svg
@@ -247,8 +235,8 @@ const Exchanges = () => {
             )}
 
             <p
-              className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
-              style={{ fontFamily: "Inter, sans-serif" }}
+              className="text-lg text-gray-300 max-w-2xl mx-auto"
+              style={{ fontFamily: "Poppins, sans-serif" }}
             >
               Discover the world&apos;s leading cryptocurrency exchanges ranked
               by trading volume, market share, and reliability.
@@ -285,68 +273,32 @@ const Exchanges = () => {
             </div>
           )}
 
-          {/* Error State with Mock Data */}
+          {/* Error State with Demo Data */}
           {error && (
             <>
-              <div className="text-center mb-12">
-                <div className="bg-gradient-to-r from-amber-500/10 via-yellow-500/5 to-amber-500/10 border border-amber-500/20 rounded-3xl p-8 max-w-3xl mx-auto backdrop-blur-sm">
-                  <div className="flex items-center justify-center gap-3 mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-full flex items-center justify-center">
-                      <span className="text-white text-xl">⚡</span>
-                    </div>
-                    <h3 className="text-2xl font-semibold text-amber-400">
-                      Demo Experience
-                    </h3>
-                  </div>
-                  <p className="text-gray-300 leading-relaxed mb-4">
-                    Experience our exchange platform with curated demo data.
-                    Real-time API integration requires premium access for live
-                    market data.
+              <div className="text-center mb-8">
+                <div className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 max-w-2xl mx-auto">
+                  <div className="text-4xl mb-4">🏦</div>
+                  <h3 className="text-xl font-semibold text-white mb-2">
+                    Demo Mode Active
+                  </h3>
+                  <p className="text-gray-300">
+                    Showing sample exchange data for demonstration purposes.
                   </p>
-                  <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-amber-400/20 via-yellow-400/20 to-orange-400/20 rounded-full border border-amber-400/30 backdrop-blur-sm">
-                    <div className="relative">
-                      <div className="w-3 h-3 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-full animate-pulse"></div>
-                      <div className="absolute inset-0 w-3 h-3 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-full animate-ping opacity-75"></div>
-                    </div>
-                    <span
-                      className="text-amber-100 text-sm font-semibold tracking-wide"
-                      style={{ fontFamily: "Inter, sans-serif" }}
-                    >
-                      ✨ INTERACTIVE DEMO EXPERIENCE
-                    </span>
-                    <div className="relative">
-                      <div
-                        className="w-3 h-3 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full animate-pulse"
-                        style={{ animationDelay: "0.5s" }}
-                      ></div>
-                      <div
-                        className="absolute inset-0 w-3 h-3 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full animate-ping opacity-75"
-                        style={{ animationDelay: "0.5s" }}
-                      ></div>
-                    </div>
-                  </div>
                 </div>
               </div>
 
-              {/* Enhanced Stats Banner */}
-              <div className="bg-gradient-to-r from-white/5 via-white/10 to-white/5 backdrop-blur-lg border border-white/20 rounded-3xl p-8 mb-12 shadow-2xl">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-gradient-to-r from-emerald-400 to-teal-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                      <span className="text-white text-2xl">🏦</span>
-                    </div>
-                    <h3 className="text-3xl font-bold text-white mb-2">
+              {/* Stats Banner */}
+              <div className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 mb-8">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                  <div>
+                    <h3 className="text-2xl font-bold text-white mb-2">
                       {topExchanges.length}
                     </h3>
-                    <p className="text-gray-300 font-medium">
-                      Featured Platforms
-                    </p>
+                    <p className="text-gray-400">Featured Exchanges</p>
                   </div>
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-gradient-to-r from-blue-400 to-cyan-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                      <span className="text-white text-2xl">📊</span>
-                    </div>
-                    <h3 className="text-3xl font-bold text-white mb-2">
+                  <div>
+                    <h3 className="text-2xl font-bold text-white mb-2">
                       {topExchanges
                         .reduce(
                           (acc, exchange) =>
@@ -355,28 +307,16 @@ const Exchanges = () => {
                         )
                         .toLocaleString()}
                     </h3>
-                    <p className="text-gray-300 font-medium">Trading Pairs</p>
+                    <p className="text-gray-400">Trading Pairs</p>
                   </div>
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-gradient-to-r from-purple-400 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                      <span className="text-white text-2xl">🌍</span>
-                    </div>
-                    <h3 className="text-3xl font-bold text-white mb-2">
-                      Global
-                    </h3>
-                    <p className="text-gray-300 font-medium">Market Access</p>
-                  </div>
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-gradient-to-r from-orange-400 to-red-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                      <span className="text-white text-2xl">🚀</span>
-                    </div>
-                    <h3 className="text-3xl font-bold text-white mb-2">24/7</h3>
-                    <p className="text-gray-300 font-medium">Trading Active</p>
+                  <div>
+                    <h3 className="text-2xl font-bold text-white mb-2">24/7</h3>
+                    <p className="text-gray-400">Trading Available</p>
                   </div>
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {topExchanges.map((exchange, index) => (
                   <ExchangeCard
                     key={exchange.uuid || exchange.id || index}
@@ -392,28 +332,16 @@ const Exchanges = () => {
           {!isFetching && !error && topExchanges.length > 0 && (
             <>
               {/* Stats Banner */}
-              <div className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 mb-8 hover:bg-white/10 hover:border-emerald-400/30 transition-all duration-500 ease-out">
+              <div className="bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 mb-8">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-                  <div className="group cursor-pointer p-4 rounded-xl hover:bg-white/5 hover:scale-105 transition-all duration-300">
-                    <div className="flex items-center justify-center gap-2 mb-2">
-                      <span className="text-2xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-                        🏆
-                      </span>
-                    </div>
-                    <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-emerald-300 transition-colors duration-300">
+                  <div>
+                    <h3 className="text-2xl font-bold text-white mb-2">
                       {topExchanges.length}
                     </h3>
-                    <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
-                      Top Exchanges
-                    </p>
+                    <p className="text-gray-400">Top Exchanges</p>
                   </div>
-                  <div className="group cursor-pointer p-4 rounded-xl hover:bg-white/5 hover:scale-105 transition-all duration-300">
-                    <div className="flex items-center justify-center gap-2 mb-2">
-                      <span className="text-2xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-                        🏪
-                      </span>
-                    </div>
-                    <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-purple-300 transition-colors duration-300">
+                  <div>
+                    <h3 className="text-2xl font-bold text-white mb-2">
                       {topExchanges
                         .reduce(
                           (acc, exchange) =>
@@ -422,22 +350,11 @@ const Exchanges = () => {
                         )
                         .toLocaleString()}
                     </h3>
-                    <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
-                      Total Markets
-                    </p>
+                    <p className="text-gray-400">Total Markets</p>
                   </div>
-                  <div className="group cursor-pointer p-4 rounded-xl hover:bg-white/5 hover:scale-105 transition-all duration-300">
-                    <div className="flex items-center justify-center gap-2 mb-2">
-                      <span className="text-2xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
-                        ⚡
-                      </span>
-                    </div>
-                    <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-cyan-300 transition-colors duration-300">
-                      24/7
-                    </h3>
-                    <p className="text-gray-400 group-hover:text-gray-300 transition-colors duration-300">
-                      Trading Available
-                    </p>
+                  <div>
+                    <h3 className="text-2xl font-bold text-white mb-2">24/7</h3>
+                    <p className="text-gray-400">Trading Available</p>
                   </div>
                 </div>
               </div>
@@ -465,90 +382,6 @@ const Exchanges = () => {
             </div>
           )}
         </div>
-
-        {/* Professional Disclaimer Section */}
-        {demoMode && (
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
-            <div className="bg-gradient-to-r from-slate-900/80 via-slate-800/80 to-slate-900/80 backdrop-blur-xl border border-slate-700/50 rounded-3xl p-8 shadow-2xl">
-              <div className="text-center mb-8">
-                <div className="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-amber-500/20 to-yellow-500/20 rounded-full border border-amber-500/30 mb-6">
-                  <div className="w-3 h-3 bg-amber-400 rounded-full animate-pulse"></div>
-                  <span
-                    className="text-amber-200 font-semibold text-sm tracking-wide"
-                    style={{ fontFamily: "Inter, sans-serif" }}
-                  >
-                    ENTERPRISE DISCLAIMER
-                  </span>
-                  <div
-                    className="w-3 h-3 bg-yellow-400 rounded-full animate-pulse"
-                    style={{ animationDelay: "0.5s" }}
-                  ></div>
-                </div>
-
-                <h3
-                  className="text-2xl font-bold mb-4 bg-gradient-to-r from-slate-200 to-white bg-clip-text text-transparent"
-                  style={{ fontFamily: "Space Grotesk, sans-serif" }}
-                >
-                  Professional Data Services
-                </h3>
-
-                <div className="max-w-4xl mx-auto">
-                  <p
-                    className="text-gray-300 leading-relaxed mb-6"
-                    style={{ fontFamily: "Inter, sans-serif" }}
-                  >
-                    This platform provides professional-grade cryptocurrency
-                    market intelligence.
-                    <span className="text-emerald-400 font-semibold">
-                      {" "}
-                      Real-time data access requires enterprise licensing
-                    </span>{" "}
-                    for compliance with financial data regulations and exchange
-                    partnerships.
-                  </p>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
-                    <div className="bg-slate-800/50 rounded-xl p-5 border border-slate-600/30">
-                      <h4 className="text-white font-semibold mb-3 flex items-center gap-2">
-                        <span className="text-blue-400">🔒</span>
-                        Data Security & Compliance
-                      </h4>
-                      <ul className="text-gray-400 text-sm space-y-2">
-                        <li>• Enterprise-grade API security</li>
-                        <li>• GDPR & financial regulation compliance</li>
-                        <li>• Encrypted data transmission</li>
-                        <li>• Audit trail & monitoring</li>
-                      </ul>
-                    </div>
-
-                    <div className="bg-slate-800/50 rounded-xl p-5 border border-slate-600/30">
-                      <h4 className="text-white font-semibold mb-3 flex items-center gap-2">
-                        <span className="text-emerald-400">💼</span>
-                        Business Solutions
-                      </h4>
-                      <ul className="text-gray-400 text-sm space-y-2">
-                        <li>• Custom API integrations</li>
-                        <li>• White-label solutions</li>
-                        <li>• Dedicated support teams</li>
-                        <li>• SLA guarantees</li>
-                      </ul>
-                    </div>
-                  </div>
-
-                  <div className="mt-8 pt-6 border-t border-slate-700/50">
-                    <p className="text-gray-400 text-sm leading-relaxed">
-                      <span className="text-amber-300 font-medium">Note:</span>{" "}
-                      Demo content is provided for evaluation purposes.
-                      Production deployment requires valid licensing agreements
-                      with data providers and regulatory compliance
-                      verification.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
       </div>
       <Footer />
     </>
