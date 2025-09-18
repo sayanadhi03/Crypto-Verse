@@ -4,7 +4,7 @@ import Navbar from "./../components/Navbar";
 import Footer from "@/components/Footer";
 import Card from "@/components/Card";
 import GlobalStats from "@/components/GlobalStats";
-import FuzzyText from "@/components/FuzzyText";
+import { LayoutTextFlip } from "@/components/ui/layout-text-flip";
 import { Spotlight } from "@/components/ui/spotlight-new";
 
 export default function Home() {
@@ -33,17 +33,16 @@ export default function Home() {
             >
               <div className="text-center w-full flex justify-center">
                 <div className="mb-6 sm:mb-8 lg:mb-12">
-                  <FuzzyText
-                    fontSize="clamp(1rem, 4vw, 4.5rem)"
-                    fontWeight={900}
-                    fontFamily="Space Grotesk, Inter, sans-serif"
-                    color="#ffffff"
-                    enableHover={true}
-                    baseIntensity={0.18}
-                    hoverIntensity={0.5}
-                  >
-                    Welcome to Crypto Verse
-                  </FuzzyText>
+                  <LayoutTextFlip
+                    text="Welcome to"
+                    words={[
+                      "Crypto Verse",
+                      "Digital Assets",
+                      "Blockchain World",
+                      "Crypto Future",
+                    ]}
+                    duration={3000}
+                  />
                 </div>
               </div>
             </div>
